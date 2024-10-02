@@ -25,4 +25,20 @@ def createProduct():
 def getProducts():
     return jsonify(products), 200
 
+# Encontrar produto pelo ID
+def findProductById(productID):
+    for product in products:
+        if product['id'] == productID:
+            return product
+    return None
+
+
+# Endpoint para obter um produto específico (GET)
+@app.route('/products/<int:productID>', methods=['GET'])
+def getSpecificProduct(productID):
+    product = findProductById(productID)
+    if product:
+        return jsonify(product), 200
+    return jsonify('Produto não encontrado!'), 404
+
 
