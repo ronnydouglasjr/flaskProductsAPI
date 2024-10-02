@@ -57,3 +57,16 @@ def updateProduct(productID):
         }), 200
     return jsonify({'mensagem': 'Produto não encontrado!'}), 404
 
+# Endpoint para deletar um produto (DELETE)
+@app.route('/products/<int:productID>', methods=['DELETE'])
+def deleteProduct(productID):
+    product = findProductById(productID)
+    if product:
+        global products
+        products = [p for p in products if p['id'] != productID]
+        return jsonify('Produto removido com sucesso!'), 204
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+

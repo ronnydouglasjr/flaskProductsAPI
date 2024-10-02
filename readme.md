@@ -54,3 +54,27 @@ A API possui os seguintes endpoints:
       }
   ]
 
+### 3. Atualizar um Produto
+
+- **URL**: `/produtos/<int:produto_id>`
+- **Método**: `PUT`
+- **Body** (JSON):
+  ```json
+  {
+      "NomeDoProduto": "Novo Nome do Produto",
+      "descricao": "Nova Descrição do Produto",
+      "preco": "Novo Preço do Produto",
+      "QuantidadeDeProdutos": "Nova Quantidade em Estoque"
+  }
+
+### 4. Deletar um Produto
+
+- **URL**: `/produtos/<int:produto_id>`
+- **Método**: `DELETE`
+- **Descrição**: Este endpoint remove um produto da lista com base em seu ID. O `produto_id` deve ser um inteiro que representa o ID do produto que você deseja deletar. Se a operação for bem-sucedida, retornará uma mensagem de confirmação.
+
+- **Resposta** (JSON):
+  ```json
+  {
+      "message": "Produto removido com sucesso"
+  }
