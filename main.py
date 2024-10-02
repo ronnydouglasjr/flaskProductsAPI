@@ -41,4 +41,19 @@ def getSpecificProduct(productID):
         return jsonify(product), 200
     return jsonify('Produto não encontrado!'), 404
 
+# Endpoint para atualizar um produto (PUT)
+@app.route('/products/<int:productID>', methods=['PUT'])
+def updateProduct(productID):
+    data = request.get_json()
+    product = findProductById(productID)
+    if product:
+        product['name'] = data.get('name', product['name'])
+        product['description'] = data.get('description', product['description'])
+        product['price'] = data.get('price', product['price'])
+        product['stock'] = data.get('stock', product['stock'])
+        return jsonify({
+            'mensagem': 'Produto atualizado com sucesso!',
+            'produto': product
+        }), 200
+    return jsonify({'mensagem': 'Produto não encontrado!'}), 404
 

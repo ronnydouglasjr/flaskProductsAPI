@@ -32,3 +32,25 @@ A API possui os seguintes endpoints:
       "preco": "Preço do Produto",
       "QuantidadeDeProdutos": "Quantidade em Estoque"
   }
+  
+### 2. Obter Todos os Produtos
+
+- **URL**: `/produtos`
+- **Método**: `GET`
+- **Resposta** (JSON):
+  ```json
+  [
+      {
+          "NomeDoProduto": "Produto A",
+          "descricao": "Descrição do Produto A",
+          "preco": "10.00",
+          "QuantidadeDeProdutos": "100"
+      },
+      {
+          "NomeDoProduto": "Produto B",
+          "descricao": "Descrição do Produto B",
+          "preco": "20.00",
+          "QuantidadeDeProdutos": "200"
+      }
+  ]
+
